@@ -1,0 +1,26 @@
+.card{
+    background-color: rgba(0, 255, 255, 0.132);
+    color: grey;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 10px 5px 5px aqua;
+    margin: auto;
+    margin-top: 30px;
+    h2{
+        color: black;
+        margin-top: 30px;
+    }
+    p{
+        font-size: 2em;
+        font-weight: bold;
+        color: goldenrod;
+    }
+    button{
+        flex-direction: column;
+        background-color: green;
+        color: white;
+        width: 50%;
+        border-radius: 10px;
+        border-color: rgba(0, 128, 0, 0.42);
+    }
+}
