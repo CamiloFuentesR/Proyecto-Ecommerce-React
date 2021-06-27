@@ -1,0 +1,11 @@
+.itemListContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+h2{
+    color: lightsalmon;
+    transform: translateY(50%);
+}

@@ -1,17 +1,17 @@
 import './App.css';
-import { CardComponent } from './components/CardComponent';
 import { probandoEnConsola } from './utils/generales';
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import NavBar from "./components/NavBar/Navbar";
+import { Contador } from "./components/ContadorComponent";
+import { HomeContainer } from "./containers/HomeContainer";
+import { ItemListContainer } from "./components/ItemListContainer";
 
 function App() {
   probandoEnConsola(`Funcionando el mensaje en consola`);
   return (
     <div className="App">
-      <NavBar />
-      <CardComponent />
-      <CardComponent />
-      <CardComponent />
+      <HomeContainer/>
+      <ItemListContainer greeting = {"Hola les envío un greeting desde Chile!!"}/>
+      <Contador />
     </div>
   );
 }
