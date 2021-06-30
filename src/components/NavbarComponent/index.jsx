@@ -1,7 +1,7 @@
 import logo from "./logoNavbar.png"
 import "./style.scss";
 
-const NavbarComponent = ({ cart, boton }) => {
+const NavbarComponent = ({ cart}) => {
     return (
         <div className= "container">
             <nav className="navbar navbar-expand-md navbar-light bg-light">
