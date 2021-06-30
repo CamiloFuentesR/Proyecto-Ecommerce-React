@@ -1,7 +1,7 @@
 import './App.css';
 import { probandoEnConsola } from './utils/generales';
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import { Contador } from "./components/ContadorComponent";
+import { ButtonComponent } from "./components/ItemCount"
 import { HomeContainer } from "./containers/HomeContainer";
 import { ItemListContainer } from "./components/ItemListContainer";
 
@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <HomeContainer/>
-      <ItemListContainer greeting = {"Hola les envío un greeting desde Chile!!"}/>
-      <Contador />
+      <ItemListContainer/>
+      <ButtonComponent />
     </div>
   );
 }

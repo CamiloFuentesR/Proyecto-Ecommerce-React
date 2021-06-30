@@ -1,10 +1,10 @@
 import "./style.scss";
 import { CardComponent } from "../CardComponent"
 
-export function ItemListContainer ({greeting}){
+export function ItemListContainer (){
     return(
     <div className = "itemListContainer">
-        <h2>{greeting}</h2>
+        <CardComponent/>
         <CardComponent/>
         <CardComponent/>
         <CardComponent/>
