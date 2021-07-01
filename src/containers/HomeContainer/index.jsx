@@ -7,7 +7,7 @@ export const HomeContainer = ({greeting}) =>{
     return (
         <div>
             <header>
-                <NavbarComponent cart={carrito} greeting = {"Hola les envío un greeting desde Chile!!"}/>
+                <NavbarComponent cart={carrito} />
             </header>
             <h1>{greeting}</h1>
         </div>
