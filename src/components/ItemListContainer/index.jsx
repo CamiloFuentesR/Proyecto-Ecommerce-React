@@ -8,7 +8,7 @@ export const ItemListContainer = () => {
 
     useEffect(() => {
         async function getDataMl(){
-            const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=consolas`);
+            const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=zapatillasmujer`);
             const data = await response.json();
             setListProducts (data.results);
         }
