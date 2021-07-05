@@ -1,47 +1,27 @@
 // import { getDefaultNormalizer } from "@testing-library/react";
 // import { useEffect, useState } from "react";
 
-// export const Contador = ({stock, initial, onAdd}) => {
-//     const [contador, setContador] = useState(0);
-//     const [productos, setProductos] = useState([])
 
-//     useEffect(() => {
-//         async function getDataMl(){
-//             const response = await fetch(`https://api.mercadolibre.com/site/MLA/search?q=zapatillas`);
+            // fetch(`https://api.mercadolibre.com/site/MLA/search?q=zapatillas`).then(response => {
+            //     return response.json();
+            // }).then (data => {
+            //     console.log(data);
+            //     console.log(data.results[0].title);
+            //     setProductos(data);
+            // }).catch(error => {
+            //     console.log(error);
+            // }).finally(() => {
+            //     console.log(`se terminó la request`);
+            // })
+
 //             const data = await response.json();
-//             setProductos (data.results);
-//             // fetch(`https://api.mercadolibre.com/site/MLA/search?q=zapatillas`).then(repsonse => {
-//             //     return response.json();
-//             // }).then (values => {
-//             //     console.log(values);
-//             //     console.log(data.results[0].title);
-//             //     setProductos(data);
-//             //     generarNuevasCards(data);
-//             // }).catch(error => {
-//             //     console.log(error);
-//             // }).finally(() => {
-//             //     console.log(`se terminó la request`);
-//             // })
-
-//             // const data = await response.json();
-//             // setProductos(data);
-//             // setContador(5);
-//             // console.log(`Estoy creada`)
+//             setProductos(data);
+//             setContador(5);
+//             console.log(`Estoy creada`)
 //         }
 //         getDataMl();
 
 //     }, []);
-
-
-//     console.log(productos);
-//     return (
-//         <div className="itemCount">
-//             {productos.length > 0 ? productos[0].price : `loading`}
-//             <button className="btn btn-info" onClick={() => {setContador(contador-1)}}>-</button>
-//             {contador +1}
-//             <button className="btn btn-info" onClick={() => {setContador(contador+1)}}>+</button>
-//         </div>
-//     )
 // }
 
 // export const Card = () => {

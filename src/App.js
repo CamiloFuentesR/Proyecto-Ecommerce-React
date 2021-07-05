@@ -9,7 +9,7 @@ function App() {
   probandoEnConsola(`Funcionando el mensaje en consola`);
   return (
     <div className="App">
-      <HomeContainer greeting = {"Hola les envío un greeting desde Chile!!"}/>
+      <HomeContainer greeting = {"Envío un greeting desde Chile!!"}/>
       <ItemListContainer/>
       <ButtonComponent />
     </div>

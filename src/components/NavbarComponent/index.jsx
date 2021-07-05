@@ -1,6 +1,6 @@
 import logo from "./logoNavbar.png"
 import "./style.scss";
-import { CartWidget } from "../CartWidget/CartWidget";
+import { CartWidget } from "../CartWidget";
 
 const NavbarComponent = ({ cart}) => {
     return (

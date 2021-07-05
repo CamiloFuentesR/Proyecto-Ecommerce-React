@@ -1,14 +1,22 @@
-import "./style.scss";
-import { CardComponent } from "../CardComponent"
+import React, {useState, useEffect} from 'react'
+import { ItemList } from '../ItemList';
+import { Item } from '../Item';
 
-export function ItemListContainer (){
+
+export const ItemListContainer = () => {
+    const[listProducts, setListProducts] = useState([]);
+
+    useEffect(() => {
+        async function getDataMl(){
+            const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=consolas`);
+            const data = await response.json();
+            setListProducts (data.results);
+        }
+        getDataMl();
+    }, [])
+    console.log(listProducts);
+
     return(
-    <div className = "itemListContainer">
-        <CardComponent/>
-        <CardComponent/>
-        <CardComponent/>
-        <CardComponent/>
-    </div>
+            <ItemList key={Item.id} listProducts={listProducts}/>
     )
 }
-

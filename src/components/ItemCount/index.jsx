@@ -10,14 +10,6 @@ export const Contador = ({stock, initial, onAdd}) => {
         console.log(`Estoy creada`)
     }, []);
 
-    // function sumar(){
-    //     if (stock === contador){
-    //         alert("mo tenemos más stock")
-    //     }else{
-    //         setContador(contador +1)
-    //         console.log(`¡tenemos 5 unidades disponibles!`)
-    //     }
-
     return (
         <div className="itemCount">
             <button className="btn btn-info" onClick={() => {contador === initial ? alert("cantida mínima 1 unidad") : setContador(contador -1) }}>-</button>
