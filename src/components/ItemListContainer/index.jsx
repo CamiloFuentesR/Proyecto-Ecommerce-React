@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { ItemList } from '../ItemList';
-import { Item } from '../Item';
 
 
 export const ItemListContainer = () => {
@@ -17,6 +16,6 @@ export const ItemListContainer = () => {
     console.log(listProducts);
 
     return(
-            <ItemList key={Item.id} listProducts={listProducts}/>
+        <ItemList key={ItemList.id} listProducts={listProducts}/>
     )
 }

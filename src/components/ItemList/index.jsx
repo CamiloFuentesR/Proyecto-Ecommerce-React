@@ -3,12 +3,10 @@ import "./style.scss";
 
 export const ItemList = ({listProducts}) => {
     return(
-        <section>
+        <section className = "itemContainer">
             {listProducts.map(producto => {
                 return(
-                    <div className = "itemListContainer">
-                        <Item key={producto.id} nombre={producto.title} precio={producto.price} imagen={producto.thumbnail}/>
-                    </div>
+                    <Item key={producto.id} nombre={producto.title} precio={producto.price} imagen={producto.thumbnail}/>
                 )
             })}
         </section>
