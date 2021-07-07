@@ -2,7 +2,7 @@ import logo from "./logoNavbar.png"
 import "./style.scss";
 import { CartWidget } from "../CartWidget";
 
-const NavbarComponent = ({ cart}) => {
+const NavbarComponent = () => {
     return (
         <div className= "container">
             <nav className="navbar navbar-expand-md navbar-light bg-light">
@@ -16,7 +16,6 @@ const NavbarComponent = ({ cart}) => {
                         <span className="nav-item nav-link active" >Home <span className="sr-only"></span></span>
                         <span className="nav-item nav-link" >Lenguajes</span>
                         <span className="nav-item nav-link" >Frameworks</span>
-                        <span className="nav-item nav-link disabled" >Carrito - {cart.length}</span>
                         <CartWidget />
                     </div>
                 </div>

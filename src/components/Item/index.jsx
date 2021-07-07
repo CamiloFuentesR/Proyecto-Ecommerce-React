@@ -9,7 +9,6 @@ export function Item ({nombre, precio, imagen}){
         <div className="card">
             <img className="curso1" src={imagen} alt="curso1"/>
             <h3>{nombre}</h3>
-            <h6>React es una biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página..</h6>
             <img className="estrellas" src={estrellas} alt="estrellas" />
             <p className="precio">{precio}</p>
             <span className="nuevoPrecio"> ANTES $19.990</span>
