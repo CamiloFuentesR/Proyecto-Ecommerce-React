@@ -18,19 +18,3 @@ export const Contador = ({stock, initial, onAdd}) => {
         </div>
     )
 }
-// }
-
-export const ButtonComponent = () => {
-    const [numero, setNumero] = useState(0);
-
-    const aumentar = () => {
-        console.log(`hiciste click`)
-        setNumero(numero + 1)
-    }
-    return (
-        <>
-        <p>componente contador {numero}</p>
-        <button onClick={aumentar}>Aumentar</button>
-        </>
-    )
-}

@@ -2,25 +2,25 @@ import { ItemDetail } from "../ItemDetail"
 import { useEffect, useState } from "react"
 
 
-const productosMock = [{
+const productosJson = [{
     id: 1,
     name: "Zapatilla",
     price: "30.000",
-    image: img1,
+    image: "zapatilla.jpeg",
     description: "Pitillo",
     categoryId: "zapatilla-mujer",
   },{
     id: 2,
     name: "Mochila",
     price: "15.000",
-    image: img2,
+    image: "mochila.jpeg",
     description: "Notebook",
     categoryId: "Mochila",
   },{
     id: 3,
     name: "Polerón",
     price: "20.000",
-    image: img3,
+    image: "poleron.webp",
     description: "Freestyle",
     categoryId: "poleron",
   }
@@ -31,11 +31,10 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
         function productos(){
-             fetch(productosMock).then(response => {
+             fetch(productosJson).then(response => {
                 return response.json();
             }).then (data => {
-                console.log(data);
-                console.log(data.results[0].description);
+                console.log(data.results);
                 setProductosMock(data);
             }).catch(error => {
                 console.log(error);
@@ -44,14 +43,13 @@ export const ItemDetailContainer = () => {
             })
         }
         setTimeout(() =>{
-            setProductosMock
         },2000);
 
         productos()
     }, [])
-    console.log(setProductosMock)
+    console.log(productosMock)
     
     return(
-        <ItemDetail key={ItemDetailContainer.id} nombre={productosMock.name} precio={productosMock.price} imagen={productosMock.image} descripcion={productosMock.description} categoria={productosMock.categoryId}/>
+        <ItemDetail key={ItemDetailContainer.id} nombre={productosJson.name} precio={productosJson.price} imagen={productosJson.image} descripcion={productosJson.description} categoria={productosJson.categoryId}/>
         )
     } 
