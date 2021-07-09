@@ -1,13 +1,16 @@
+import "./style.scss";
 
 
-export const ItemDetail = ({ id, name, price, image, description, categoryId }) =>{
+export const ItemDetail = ({ name, price, thumbnail, title }) =>{
     return(
-        <div>{categoryId}
-            <img className={id} src={image} alt="zapatilla"/>
-            <h3>{name}</h3>
-            <h6>{description}</h6>
-            <p className="precio">{price}</p>
-            <b>Sólo 5 unidades disponibles</b>
+        <div className="cardItemDetail">
+               <img className="card-img-top" src={thumbnail} alt="Card image cap"></img>
+            <div className="card-body">
+                <h5 className="card-title">{title}</h5>
+                <p className="card-text">{name}</p>
+                <a className="btn btn-primary">{price}</a>
+           </div>
         </div>
+
     )
 }

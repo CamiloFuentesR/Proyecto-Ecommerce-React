@@ -24,3 +24,25 @@
 //     )}
     
 //     export default App
+
+// clase eventos
+
+// import React from 'react';
+// import './style.css';
+// import { ProgressComponent } from './ProgressComponent';
+
+// export default function App() {
+//   const[play,setPlay]=useState(0)
+//   const[stop,setStop]=useState(0)
+//   const[reset,setReset]=useState(0)
+
+
+//   return (
+//     <div>
+//       <ProgressComponent opciones={"play":play,"stop":stop,"reset":reset}/>
+
+//       <button onClick={setPlay(1)}>Play</button>
+//       <button onClick={setStop(1)}>Stop</button>
+//       <button onClick={setReset(1)}>Reset</button>
+//     </div>
+//   );
