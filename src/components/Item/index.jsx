@@ -14,7 +14,7 @@ export function Item ({nombre, precio, imagen}){
             <span className="nuevoPrecio"> ANTES $19.990</span>
             <b>Sólo 5 unidades disponibles</b>
             <Contador stock={5} initial={1}/>
-            <button className="agregarCarrito" onClick= {() => {saludoBotonAgregar(alert(`Agregamos al Carrito`))}}>Agregar al Carrito</button>
+            <button className="btn btn-info" onClick= {() => {saludoBotonAgregar(alert(`Agregamos al Carrito`))}}>Ver información</button>
         </div>
     )
 }

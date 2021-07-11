@@ -27,7 +27,7 @@ import { useEffect, useState } from "react"
 //   ]
 
 export const ItemDetailContainer = () => {
-    const[productosMock, setProductosMock] = useState([]);
+    const[productosMock, setProductosMock] = useState();
 
     useEffect(() => {
         async function productos(){
@@ -36,13 +36,17 @@ export const ItemDetailContainer = () => {
             setProductosMock (data.results[0]);
         }
         setTimeout(() =>{
-        },2000);
+            productos()
+        },1000);
 
-        productos()
     }, [])
     console.log(productosMock)
     
     return(
-        <ItemDetail key={productosMock.id} nombre={productosMock.name} precio={productosMock.price} imagen={productosMock.thumbnail} titulo={productosMock.title}/>
+        <>
+        {productosMock ?
+        <ItemDetail key={productosMock.id} categoria={productosMock.sold_quantity} precio={productosMock.price} imagen={productosMock.thumbnail} titulo={productosMock.title}/>
+        : <p>Cargando...</p>}
+        </>
         )
     } 
