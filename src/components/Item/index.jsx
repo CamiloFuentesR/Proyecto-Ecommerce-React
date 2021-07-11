@@ -2,7 +2,7 @@ import "./style.scss";
 import { saludoBotonAgregar } from '../../utils/generales';
 import estrellas from "./estrellas.png";
 import { Contador } from "../ItemCount";
-
+import { Link } from "react-router-dom";
 
 export function Item ({nombre, precio, imagen}){
     return (
@@ -14,7 +14,7 @@ export function Item ({nombre, precio, imagen}){
             <span className="nuevoPrecio"> ANTES $19.990</span>
             <b>Sólo 5 unidades disponibles</b>
             <Contador stock={5} initial={1}/>
-            <button className="btn btn-info" onClick= {() => {saludoBotonAgregar(alert(`Agregamos al Carrito`))}}>Ver información</button>
+            <Link to={"/detalle"}><button className="btn btn-info" onClick= {() => {saludoBotonAgregar(alert(`Agregamos al Carrito`))}}>Info del producto</button></Link>
         </div>
     )
 }

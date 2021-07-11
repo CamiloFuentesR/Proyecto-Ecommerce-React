@@ -4,7 +4,9 @@ import "./style.scss";
 export const ItemDetail = ({ categoria, precio, imagen, titulo }) =>{
     return(
         <div className="cardItemDetail">
+            <div className="cardDetail">
                <img className="card-img-top" src={imagen} alt="imagen"></img>
+            </div>
             <div className="card-body">
                 <h3 className="card-title">{titulo}</h3>
                 <h6 className="card-text">Cantidades Vendidas: {categoria}</h6>

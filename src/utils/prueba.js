@@ -1,3 +1,5 @@
+
+// AFTER ACO
 // import React, {useEffect, useState} from 'react'
 // import './App.css';
 
@@ -25,7 +27,9 @@
     
 //     export default App
 
-// clase eventos
+
+
+// CLASE EVENTOS
 
 // import React from 'react';
 // import './style.css';

@@ -31,9 +31,9 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
         async function productos(){
-            const response = await fetch(`https://api.mercadolibre.com/sites/MLC/search?q=poleron`);
+            const response = await fetch(`https://api.mercadolibre.com/sites/MLC/search?q=zapatillasmujer`);
             const data = await response.json();
-            setProductosMock (data.results[0]);
+            setProductosMock (data.results[5]);
         }
         setTimeout(() =>{
             productos()

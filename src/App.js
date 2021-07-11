@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import { HomeContainer } from "./containers/HomeContainer";
@@ -15,7 +16,7 @@ function App() {
           <ItemListContainer/>
         </Route>
 
-        <Route exact path={`/detalle`}>
+        <Route path={`/detalle`}>
           <ItemDetailContainer />
         </Route>
 
