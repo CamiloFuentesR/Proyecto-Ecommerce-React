@@ -4,23 +4,39 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import { HomeContainer } from "./containers/HomeContainer";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
-import { ItemDetailContainer } from "./components/ItemDetailContainer"
+import { ItemDetailContainer } from "./components/ItemDetailContainer";
+import { Cart } from "./components/Cart"
+import { ShopContext } from "./Context/shopContext"
+
 
 function App() {
+
   return (
     <BrowserRouter>
         <HomeContainer greeting = {"Envío un greeting desde Chile!!"}/>
-      <Switch>
+        <Switch>
+          <ShopContext.Provider>
+            <Route exact path={`/`}>
+                <ItemListContainer/>
+            </Route>
 
-        <Route exact path={`/`}>
-          <ItemListContainer/>
-        </Route>
+            <Route exact path={`/detalle/:id`}>
+            <ItemDetailContainer />
+            </Route>
 
-        <Route path={`/detalle`}>
-          <ItemDetailContainer />
-        </Route>
+            <Route exact path={`/detalle`}>
+            <ItemDetailContainer />
+            </Route>
 
-      </Switch>
+            <Route exact path={`/category`}>
+            <ItemListContainer />
+            </Route>
+
+            <Route exact path={`/cart`}>
+             <Cart />
+            </Route>
+          </ShopContext.Provider>
+        </Switch>
     </BrowserRouter>
   );
 }

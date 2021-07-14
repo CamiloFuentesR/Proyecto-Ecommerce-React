@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import "./style.scss";
 
-export const Contador = ({stock, initial, onAdd}) => {
+export const Contador = ({stock, initial}) => {
     const [contador, setContador] = useState(0);
 
     useEffect(() => {
-        //cuando se montó el componente y se ejecuat una sola vez
+        //cuando se montó el componente y se ejecuta una sola vez
         setContador(1);
-        console.log(`Estoy creada`)
     }, []);
 
     return (
