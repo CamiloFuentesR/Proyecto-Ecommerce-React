@@ -81,6 +81,14 @@ const productosJson = [{
 export const ItemDetailContainer = () => {
     const[productosMock, setProductosMock] = useState();
     const {id} = useParams();
+    const[cart, setCard] = useState ([])
+    const[agregado, setAgregado] = useState(false)
+
+    function addCart (producto){
+        //validar stock aquí
+        setCard ([...cart, producto])
+        setAgregado(true)
+    }
 
     useEffect(() => {
       const misProductos = new Promise((resolve) =>{
@@ -105,9 +113,10 @@ export const ItemDetailContainer = () => {
     console.log(productosMock)
     
     return(
-        <>
+        <> 
+        {agregado ? <button className="btn btn-success" show="1000" >Terminar Compra</button> : false} 
         {productosMock ?
-        <ItemDetail key={productosMock.id} stock={productosMock.availableStock} precio={productosMock.price} imagen={productosMock.image} descripcion={productosMock.description}/>
+        <ItemDetail key={productosMock.id} stock={productosMock.availableStock} precio={productosMock.price} imagen={productosMock.image} descripcion={productosMock.description} addCart={addCart} />
         : <p>Cargando...</p>}
         </>
         )
