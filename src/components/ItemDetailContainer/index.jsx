@@ -84,19 +84,13 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
       const misProductos = new Promise((resolve) =>{
-        resolve(productosJson)
-    })
-
-    if(id){
-        misProductos.then(data => {
-        const category = data.filter(element => element.categoryId === id)
-        setProductosMock(category)
-        })
-    }else {
-        misProductos.then(data => {
-            setProductosMock(data);
-        })
-    }
+        setTimeout(function (){
+          const category = productosJson.find(element => element.id === parseInt(id))
+          resolve(category)
+        }, 2000)
+      })    
+      misProductos.then(resolve => setProductosMock(resolve))
+      console.log(id)
 
         // async function productos(){
         //     const response = await fetch(`https://api.mercadolibre.com/sites/MLC/search?q=tecnologia`);
@@ -113,7 +107,7 @@ export const ItemDetailContainer = () => {
     return(
         <>
         {productosMock ?
-        <ItemDetail key={productosMock.id} stock={productosMock.availableStock} nombre={productosMock.name} precio={productosMock.price} imagen={productosMock.image} descripcion={productosMock.description} categoria={productosMock.categoryId}/>
+        <ItemDetail key={productosMock.id} stock={productosMock.availableStock} precio={productosMock.price} imagen={productosMock.image} descripcion={productosMock.description}/>
         : <p>Cargando...</p>}
         </>
         )

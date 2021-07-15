@@ -28,10 +28,6 @@ function App() {
             <ItemDetailContainer />
             </Route>
 
-            <Route exact path={`/category`}>
-            <ItemListContainer />
-            </Route>
-
             <Route exact path={`/cart`}>
              <Cart />
             </Route>

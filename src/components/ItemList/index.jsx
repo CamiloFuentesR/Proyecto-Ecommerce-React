@@ -18,7 +18,7 @@ export const ItemList = ({listProducts}) => {
                 return(
                     <>
                     {agregado ? <button>Terminar Compra</button> :
-                        <Item key={producto.id} stock={producto.availableStock} nombre={producto.name} precio={producto.price} imagen={producto.image} addCart={addCart}/>
+                        <Item key={producto.id} id={producto.id} stock={producto.availableStock} nombre={producto.name} precio={producto.price} imagen={producto.image} addCart={addCart}/>
                     }
                     </>
                 )
