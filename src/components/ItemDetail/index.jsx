@@ -15,8 +15,8 @@ export const ItemDetail = ({ id, stock, precio, imagen, descripcion, addCart}) =
                 <h6 className="card-text">Cantidades Disponibles: {stock}</h6>
                 <p className="priceItem">${precio}</p>
                 {/* <button className="btn btn-danger" onClick= {() => {saludoBotonAgregar(alert(`Agregamos tu producto al Carrito`))}}>Agregar al Carrito</button> */}
-                <button className="btn btn-danger" onClick= {() => { addCart({id:1, descripcion:"Zapatilla Mujer", precio: 30000})}}>Agregar al Carrito</button>
                 <Contador stock={5} initial={1}/>
+                <button className="btn btn-danger" onClick= {() => { addCart({id:1, descripcion:"Zapatilla Mujer", precio: 30000})}}>Agregar al Carrito</button>
            </div>
         </div>
     )

@@ -9,6 +9,8 @@ import imagen5 from "../ItemListContainer/MochilaMinnie.jpg"
 import imagen6 from "../ItemListContainer/MochilaUnisex.jpg"
 import imagen7 from "../ItemListContainer/MochilaUnisexRosado.jpg"
 import imagen8 from "../ItemListContainer/MochilaUniverso.jpg"
+import { Link } from "react-router-dom"
+
 
 
 const productosJson = [{
@@ -114,10 +116,11 @@ export const ItemDetailContainer = () => {
     
     return(
         <> 
-        {agregado ? <button className="btn btn-success" show="1000" >Terminar Compra</button> : false} 
         {productosMock ?
         <ItemDetail key={productosMock.id} stock={productosMock.availableStock} precio={productosMock.price} imagen={productosMock.image} descripcion={productosMock.description} addCart={addCart} />
         : <p>Cargando...</p>}
+        <Link to="/cart">{agregado ? <div class="alert alert-success" role="alert">
+          <button class="btn btn-succes" show="1000">Well done! Compra Terminada</button></div> : false} </Link>
         </>
         )
     }

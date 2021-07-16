@@ -1,9 +1,9 @@
 import {createContext} from 'react'
 
 
-export const ShopContext = createContext();
+export const CartContext = createContext();
 
-export const ShopProvider = () => {
+export const CartProvider = () => {
     // const [listProducts, setListProducts]= useState([]);
     // useEffect(() => {
     //   async function getData(){
@@ -14,7 +14,7 @@ export const ShopProvider = () => {
     //   getData();
     // }, []);
   
-    return <ShopContext.Provider>
+    return <CartContext.Provider>
 
-    </ShopContext.Provider>
+    </CartContext.Provider>
 }

@@ -6,7 +6,7 @@ import { ItemListContainer } from "./components/ItemListContainer";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { Cart } from "./components/Cart"
-import { ShopContext } from "./Context/shopContext"
+import { CartContext } from "./Context/shopContext"
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
         <HomeContainer greeting = {"Envío un greeting desde Chile!!"}/>
         <Switch>
-          <ShopContext.Provider>
+          <CartContext.Provider>
             <Route exact path={`/`}>
                 <ItemListContainer/>
             </Route>
@@ -31,7 +31,7 @@ function App() {
             <Route exact path={`/cart`}>
              <Cart />
             </Route>
-          </ShopContext.Provider>
+          </CartContext.Provider>
         </Switch>
     </BrowserRouter>
   );
