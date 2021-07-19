@@ -3,6 +3,7 @@ import estrellas from "./estrellas.png";
 import { Link } from "react-router-dom";
 
 export function Item ({id, nombre, precio, imagen, stock }){
+    
     return (
         <div className="card">
             <div className="contenedorImagen">

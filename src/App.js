@@ -6,34 +6,35 @@ import { ItemListContainer } from "./components/ItemListContainer";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { Cart } from "./components/Cart"
-import { CartContext } from "./Context/shopContext"
+import { CartProvider} from "./Context/CartContext"
+
 
 
 function App() {
 
   return (
+  <CartProvider value="TEXTO RANDOM">
     <BrowserRouter>
         <HomeContainer greeting = {"Envío un greeting desde Chile!!"}/>
         <Switch>
-          <CartContext.Provider>
             <Route exact path={`/`}>
                 <ItemListContainer/>
             </Route>
 
             <Route exact path={`/detalle/:id`}>
-            <ItemDetailContainer />
+              <ItemDetailContainer />
             </Route>
 
             <Route exact path={`/detalle`}>
-            <ItemDetailContainer />
+              <ItemDetailContainer />
             </Route>
 
             <Route exact path={`/cart`}>
-             <Cart />
+              <Cart />
             </Route>
-          </CartContext.Provider>
         </Switch>
     </BrowserRouter>
+  </CartProvider>
   );
 }
 
