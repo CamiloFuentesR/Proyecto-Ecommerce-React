@@ -13,7 +13,7 @@ import { CartProvider} from "./Context/CartContext"
 function App() {
 
   return (
-  <CartProvider value="TEXTO RANDOM">
+  <CartProvider>
     <BrowserRouter>
         <HomeContainer greeting = {"Envío un greeting desde Chile!!"}/>
         <Switch>
