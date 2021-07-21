@@ -2,6 +2,7 @@ import { Item } from "../Item";
 import "./style.scss";
 
 export const ItemList = (productos) => {
+    console.log(productos)
 
     return(
         <section className = "itemContainer">

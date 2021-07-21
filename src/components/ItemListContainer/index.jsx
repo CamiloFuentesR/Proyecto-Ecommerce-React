@@ -8,15 +8,6 @@ export const ItemListContainer = () => {
     const[productosMock, setProductsMock] = useState([]);
     const { id } = useParams();
 
-        // async function productos(){
-        //     const response = await fetch(`https://api.mercadolibre.com/sites/MLC/search?q=tecnologia`);
-        //     const data = await response.json();
-        //     setProductosMock (data.results[5]);
-        // }
-        // setTimeout(() =>{
-        //     productos()
-        // },1000);
-
     useEffect(() => {
         const misProductos = new Promise((resolve) =>{
             resolve(productosJson)
@@ -24,22 +15,16 @@ export const ItemListContainer = () => {
 
         if(id){
             misProductos.then(data => {
-            const category = data.filter(element => element.categoryId === id)
-            setProductsMock(category)
-            })
-        }else {
-            misProductos.then(data => {
-              setProductsMock(data);
-            })
-        }
-
-        // async function getDataMl(){
-        //     const response = await fetch(`https://api.mercadolibre.com/sites/MLC/search?q=tecnologia`);
-        //     const data = await response.json();
-        //     setListProducts (data.results);
-        // }
-        // getDataMl();
-    }, [id])
+            const categoryId = data.filter(element => element.categoryId === id)
+            setProductsMock(categoryId)
+        })
+    }else {
+        misProductos.then(({data})=> {
+            setProductsMock({data});
+        })
+    }
+}, [id])
+console.log(productosMock)
 
     return(
         <>

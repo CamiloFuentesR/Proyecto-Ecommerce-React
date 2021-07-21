@@ -6,7 +6,7 @@ import { CartContext } from "../../Context/CartContext";
 
 
 export const ItemDetailContainer = () => {
-  const[productosMock, setProductosMock] = useState();
+  const[productos, setProductos] = useState();
   const {id} = useParams();
 
   const { addCart } = useContext(CartContext)
@@ -27,7 +27,7 @@ export const ItemDetailContainer = () => {
         resolve(category)
       }, 2000)
     })    
-    misProductos.then(resolve => setProductosMock(resolve))
+    misProductos.then(resolve => setProductos(resolve))
     console.log(id)
 
       // async function productos(){
@@ -40,17 +40,17 @@ export const ItemDetailContainer = () => {
       // },1000);
 
   }, [id])
-  console.log(productosMock)
+  console.log(productos)
   
   return(
       <> 
-      {productosMock ?
+      {productos ?
       <ItemDetail 
-      key={productosMock.id} 
-      stock={productosMock.availableStock} 
-      precio={productosMock.price} 
-      imagen={productosMock.image} 
-      descripcion={productosMock.description} 
+      key={productos.id} 
+      stock={productos.availableStock} 
+      precio={productos.price} 
+      imagen={productos.image} 
+      descripcion={productos.description} 
       addCart={addCart} />
       : <p>Cargando...</p>}
       <Link to="/cart">{agregado ? <div class="alert alert-success" role="alert">
