@@ -1,9 +1,14 @@
 import "./style.scss";
 // import { saludoBotonAgregar } from '../../utils/generales';
 import { Contador } from "../ItemCount"
+import { Link } from "react-router-dom"
+import { CartContext } from "../../Context/CartContext";
+import { useContext } from "react";
 
 
-export const ItemDetail = ({ id, stock, precio, imagen, descripcion, addCart}) =>{
+export const ItemDetail = ({ id, stock, precio, imagen, descripcion}) =>{
+
+    const {addCart, agregado} = useContext(CartContext)
 
     return(
         <div className="cardItemDetail">
@@ -14,9 +19,9 @@ export const ItemDetail = ({ id, stock, precio, imagen, descripcion, addCart}) =
                 <h4 className="card-title">{descripcion}</h4>
                 <h6 className="card-text">Cantidades Disponibles: {stock}</h6>
                 <p className="priceItem">${precio}</p>
-                {/* <button className="btn btn-danger" onClick= {() => {saludoBotonAgregar(alert(`Agregamos tu producto al Carrito`))}}>Agregar al Carrito</button> */}
                 <Contador stock={5} initial={1}/>
-                <button className="btn btn-danger" onClick= {() => { addCart({id:1, descripcion:"Zapatilla Mujer", precio: 30000})}}>Agregar al Carrito</button>
+                <button className="btn btn-danger" onClick= {() => { addCart({id})}}>Agregar al Carrito</button>
+                <Link to="/cart">{agregado ? <button className="btn btn-success">Producto Agregado ✔️</button> : false} </Link>
            </div>
         </div>
     )

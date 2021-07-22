@@ -5,7 +5,7 @@ import { HomeContainer } from "./containers/HomeContainer";
 import { ItemListContainer } from "./components/ItemListContainer";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
-import { Cart } from "./components/Cart"
+import { CartContainer } from "./components/Cart"
 import { CartProvider} from "./Context/CartContext"
 
 
@@ -30,7 +30,7 @@ function App() {
             </Route>
 
             <Route exact path={`/cart`}>
-              <Cart />
+              <CartContainer />
             </Route>
         </Switch>
     </BrowserRouter>
