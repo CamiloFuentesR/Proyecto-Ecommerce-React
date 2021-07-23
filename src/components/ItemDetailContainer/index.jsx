@@ -1,22 +1,12 @@
 import { ItemDetail } from "../ItemDetail"
-import { useContext, useEffect, useState } from "react"
-import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from "react"
+import { useParams } from 'react-router-dom';
 import { productosJson } from "../../FirebaseMock"
-import { CartContext } from "../../Context/CartContext";
 
 
 export const ItemDetailContainer = () => {
   const[productos, setProductos] = useState();
   const {id} = useParams();
-
-  // const[cart, setCard] = useState ([])
-  // const[agregado, setAgregado] = useState(false)
-
-  // function addCart (producto){
-  //     //validar stock aquí
-  //     setCard ([...cart, producto])
-  //     setAgregado(true)
-  // }
 
   useEffect(() => {
     const misProductos = new Promise((resolve) =>{

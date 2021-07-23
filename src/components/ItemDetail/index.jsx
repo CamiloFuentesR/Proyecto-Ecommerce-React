@@ -21,7 +21,7 @@ export const ItemDetail = ({ id, stock, precio, imagen, descripcion}) =>{
                 <p className="priceItem">${precio}</p>
                 <Contador stock={5} initial={1}/>
                 <button className="btn btn-danger" onClick= {() => { addCart({id})}}>Agregar al Carrito</button>
-                <Link to="/cart">{agregado ? <button className="btn btn-success">Producto Agregado ✔️</button> : false} </Link>
+                <Link to={"/"}>{agregado ? <button className="btn btn-success">Producto Agregado ✔️ Quieres seguir comprando?</button> : false} </Link>
            </div>
         </div>
     )

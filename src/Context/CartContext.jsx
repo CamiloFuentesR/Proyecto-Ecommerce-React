@@ -9,22 +9,32 @@ export const CartContext = createContext();
 export const CartProvider = ({children}) => {
     const[cart, setCard] = useState ([])
     const[agregado, setAgregado] = useState(false)
-    const[cantidad, setCantidad] = useState(0)
+    // const[cantidad, setCantidad] = useState(0)
 
-    function itemEnCarrito(id){
-        const producto = cart.find(res => res.id === id)
-        console.log(producto)
-        if (producto === undefined){
+
+    function isInCart(id){
+        const item = cart.find(res => res.id === parseInt(id))
+        console.log(item)
+        if (item === undefined){
             return false
         }else{
             return true
         }
     }
-    itemEnCarrito()
 
     function addCart (producto){
-        setCard ([...cart, producto])
-        setAgregado(true)
+        if(isInCart(id)){
+            const items = cart.find(response => response.id === id)
+            console.log(items)
+            const nuevoItem = {id: items.id, name: items.name, price: items.price, description: items.description, categoryId: items.categoryId}
+            const nuevosItems = cart.filter(producto => producto.id !== id)
+            const itemEnCarrito = [...nuevosItems, nuevoItem]
+            setCard(itemEnCarrito)
+        }else{
+            const itemSeleccion = {id:producto.id, name:producto.name, price:producto.price, description:producto.description, categoryId:producto.categoryId}
+            setCard([...cart, itemSeleccion])
+            setAgregado(true)
+        }
       }
 
 

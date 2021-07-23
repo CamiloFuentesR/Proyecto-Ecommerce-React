@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import "./style.scss";
+
 
 export const Contador = ({stock, initial}) => {
     const [contador, setContador] = useState(0);
