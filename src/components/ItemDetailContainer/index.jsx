@@ -13,7 +13,7 @@ export const ItemDetailContainer = () => {
       setTimeout(function (){
         const category = productosJson.find(element => element.id === parseInt(id))
         resolve(category)
-      }, 1000)
+      }, 2000)
     })    
     misProductos.then(resolve => setProductos(resolve))
     console.log(id)
@@ -30,7 +30,10 @@ export const ItemDetailContainer = () => {
       imagen={productos.image} 
       descripcion={productos.description} 
       />
-      : <p>Cargando...</p>}
+      : <div className="d-flex justify-content-center">
+          <div class="spinner-border text-info"></div>
+          <span className="sr-only">Loading...</span>
+      </div>}
       </>
       )
   }
