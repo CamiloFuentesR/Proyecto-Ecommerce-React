@@ -22,7 +22,7 @@ export const CartProvider = ({children}) => {
         }
     }
 
-    function addCart (producto){
+    function addCart (producto, id){
         if(isInCart(id)){
             const items = cart.find(response => response.id === id)
             console.log(items)
