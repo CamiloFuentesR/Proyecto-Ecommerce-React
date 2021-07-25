@@ -7,6 +7,7 @@ import { productosJson } from "../../FirebaseMock"
 export const ItemListContainer = () => {
     const[productosMock, setProductsMock] = useState([]);
     const { id } = useParams();
+
     useEffect(() => {
         const misProductos = new Promise((resolve) =>{
             resolve(productosJson)

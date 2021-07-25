@@ -1,35 +1,24 @@
 import {createContext, useEffect} from 'react'
 import React, { useState } from 'react'
 import { getFirestore } from "../Firebase"
-// import { productosJson } from "../FirebaseMock"
+import { productosJson } from '../FirebaseMock';
+import { useParams } from 'react-router-dom';
 
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
+    //Estados para la base de datos
     const [listProducts, setListProducts] = useState([]);
-    // const [productUnit, setProductUnit] = useState([])
+    const [listCategorias, setListCategorias] = useState({})
+
+    //Estados para el Carrito de Compras
     const[cart, setCard] = useState ([])
     const[agregado, setAgregado] = useState(false)
-    // const[cantidad, setCantidad] = useState(0)
+    const[ cantidad, setCantidad ] = useState(0)
+    const[ total, setTotal ] = useState()
 
-    useEffect(() => {
-        async function getDataFromFirestore (){ 
-            const DB = getFirestore(); 
-            const COLLECTION = DB.collection('Productos');
-            const response = await COLLECTION.get();
-            const aux = response.docs.map(element => {
-                return {id: element.id, ...element.data()}
-            });
-            setListProducts(aux)
-            console.log(setListProducts)
-        }
-        getDataFromFirestore()
-    }, [])
-
-    
-    //   const totalCantidad = cart.map(productosJson.price * productosJson.availableStock)
-
+    //Reviso que mis productos estén en el carrito
     function isInCart(id){
         const item = cart.find(res => res.id === parseInt(id))
         console.log(item)
@@ -40,20 +29,62 @@ export const CartProvider = ({children}) => {
         }
     }
 
-    function addCart (producto, id){
+    function addCart (producto, counter, id){
         if(isInCart(id)){
             const items = cart.find(response => response.id === id)
-            console.log(items)
-            const nuevoItem = {id: items.id, name: items.name, price: items.price, description: items.description, categoryId: items.categoryId}
+            const sumaCantidad = items.monto + counter
+            const nuevoItem = {id: items.id, name: items.name, price: items.price, description: items.description, categoryId: items.categoryId, monto: sumaCantidad }
             const nuevosItems = cart.filter(producto => producto.id !== id)
             const itemEnCarrito = [...nuevosItems, nuevoItem]
             setCard(itemEnCarrito)
         }else{
-            const itemSeleccion = {id:producto.id, name:producto.name, price:producto.price, description:producto.description, categoryId:producto.categoryId}
+            const itemSeleccion = {id:producto.id, name:producto.name, price:producto.price, description:producto.description, categoryId:producto.categoryId, monto: counter}
             setCard([...cart, itemSeleccion])
             setAgregado(true)
         }
       }
+      
+
+    useEffect(() => {
+        var total = 0
+        const totales = cart.map( producto => producto.price * producto.monto)
+        totales.map( producto => total = total + producto) // total por producto unitario
+        setTotal(total)
+        const cantidadCarrito = cart.length
+        setCantidad(cantidadCarrito)
+    }, [cart])
+
+
+    // const[cantidad, setCantidad] = useState(0)
+
+    // const { id } = useParams()
+
+    // useEffect(() => {
+    //     if(id){
+    //         const DB = getFirestore(); 
+    //         const COLLECTION = DB.collection('Productos');
+    //         const Categoria = COLLECTION.where(`categoryId`, `==`, id).get();
+    //         Categoria.then((response) => {
+    //             setListCategorias(response.docs.map(element => ({id: element.id, ...element.data()})))
+    //         })
+    //     }else{
+    //         console.log("algo salio mal")
+    //     }
+    // }, [id])
+
+
+    useEffect(() => {
+        async function getDataFromFirestore (){ 
+            const DB = getFirestore(); 
+            const COLLECTION = DB.collection('Productos');
+            const response = await COLLECTION.get();
+            const productos = response.docs.map(element => {
+                return {id: element.id, ...element.data()}
+            });
+            setListProducts(productos)
+        }
+        getDataFromFirestore()
+    }, [])
 
     //   function cambiarStock(id){
     //       const nuevoStock = firebase.map(producto =>{
@@ -66,7 +97,7 @@ export const CartProvider = ({children}) => {
     //   }
 
     return (
-        <CartContext.Provider value={{ listProducts, addCart, agregado}}>
+        <CartContext.Provider value={{ listProducts, listCategorias, cantidad, addCart, agregado}}>
             {children}
         </CartContext.Provider>
     )

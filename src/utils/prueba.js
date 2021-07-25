@@ -3,6 +3,9 @@
 // import React, {useEffect, useState} from 'react'
 // import './App.css';
 
+import { useEffect } from "react"
+import { productosJson } from "../FirebaseMock"
+
 // function App() {
 //     const url = 'https://jsonplaceholder.typicode.com/todos'
 //     const [todos, setTodos] = useState()
@@ -52,9 +55,9 @@ export default function App() {
   );
   */
 
-  
- /** PARA TOMAR TODOS LOS DATOS DE LA COLLECCION DE FIRESTORE
-  *         async function getDataFromFirestore (){ 
+
+ /** PARA TOMAR TODOS LOS DATOS CON ASYNC Y AWAIT DE LA COLLECCION DE FIRESTORE
+  *     async function getDataFromFirestore (){ 
              const DB = getFirestore(); // Contectando a la BD 
              const COLLECTION = DB.collection('Productos'); // Tomando la coleccion de productos que es un array
              const response = await COLLECTION.get(); // si colocas WHERE puedes traer un filtro EJ: await COLLECTION.where(`stock`, `>`, 50).get() se pueden anidar where tambien
@@ -65,6 +68,22 @@ export default function App() {
          console.log(getDataFromFirestore);
  
   */
+
+/**
+ * 
+ TOMAR LOS DATOS CON PROMESAS
+    useEffect(() => {
+        const DB = getFirestore(); // Contectando a la BD 
+        const COLLECTION = DB.collection('Productos'); // Tomando la coleccion de productos
+        COLLECTION.get().then(( response ) => {
+            console.log(response.docs)
+            response.docs.forEach((documento) => {
+                console.log(documento.data());
+            });
+        })
+    }, [])
+*/
+
 
   /** PARA TOMAR DATOS DE FIRESTORE POR ID
    *     useEffect(() => {
@@ -92,5 +111,36 @@ export default function App() {
         }
         getDataFromFirestoreUnit()
  */
+/**
+ * El batch es para actualizar la base de datos cambiando valores y productos
+ * 
+ const DB = getFirestore();
+ const Batch = DB.batch();
+ 
+ Batch.update(DB.collection(`pedido`).doc(`acá va id pedido`), {total: 9999})
+ Batch.update(DB.collection(`pedido`).doc(`acá va  otro id pedido`), {total: 9999})
+ Batch.commit();
+ */
+ 
+/**
+ SI EL CARTCONTENT tiene mis productosJson, se puede hacer una modificacion masiva a mi colleccion
+ * 
+ cartContent.forEach(element => {
+   Batch.update(DB.collection(`Productos`).doc(element.id), {stock: element.stock - element.availableQuantity...etc})
+ })
+ Batch.commit();
+ */
 
 
+/**
+ PARA AGREGAR DOCUMENTOS A LA COLLECCION
+ * 
+ const productos = [{ id: 3, name: `nombre`, price: 40000}, { id: 4, name: `nombre`, price: 40000}]
+ for(let i=0; i < 100; i ++){
+    DB.collection(`Productos`).add(productos[0]).then((response) => {
+      console.log(response)
+    })
+ }
+ */
+
+ 

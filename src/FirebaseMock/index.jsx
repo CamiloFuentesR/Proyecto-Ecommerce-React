@@ -31,7 +31,7 @@ export const productosJson = [{
     price: "20.000",
     image: imagen3,
     description: "Polerón Adidas Rosado",
-    categoryId: "Hombre",
+    categoryId: "Mujer",
   },{
     id: 4,
     availableStock: 5,
@@ -46,7 +46,7 @@ export const productosJson = [{
     name: "Mochila Kids",
     price: "15.000",
     image: imagen5,
-    description: "Mochila monster Inc",
+    description: "Mochila Minnie Moouse",
     categoryId: "Niños/Niñas",
   },{
     id: 6,
@@ -54,7 +54,7 @@ export const productosJson = [{
     name: "Mochila Kids",
     price: "15.000",
     image: imagen6,
-    description: "Mochila Wall-e",
+    description: "Mochila Unisex",
     categoryId: "Niños/Niñas",
   },{
     id: 7,
@@ -62,7 +62,7 @@ export const productosJson = [{
     name: "Mochila Kids",
     price: "15.000",
     image: imagen7,
-    description: "Mochila Toy Story",
+    description: "Mochila Rosada Niña",
     categoryId: "Niños/Niñas",
   },{
     id: 8,
@@ -70,7 +70,7 @@ export const productosJson = [{
     name: "Mochila Kids",
     price: "15.000",
     image: imagen8,
-    description: "Mochila Nemo",
+    description: "Mochila universo Niño",
     categoryId: "Niños/Niñas",
   }
   ]
