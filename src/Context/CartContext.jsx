@@ -7,10 +7,28 @@ import { getFirestore } from "../Firebase"
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
+    const [listProducts, setListProducts] = useState([]);
+    // const [productUnit, setProductUnit] = useState([])
     const[cart, setCard] = useState ([])
     const[agregado, setAgregado] = useState(false)
     // const[cantidad, setCantidad] = useState(0)
 
+    useEffect(() => {
+        async function getDataFromFirestore (){ 
+            const DB = getFirestore(); 
+            const COLLECTION = DB.collection('Productos');
+            const response = await COLLECTION.get();
+            const aux = response.docs.map(element => {
+                return {id: element.id, ...element.data()}
+            });
+            setListProducts(aux)
+            console.log(setListProducts)
+        }
+        getDataFromFirestore()
+    }, [])
+
+    
+    //   const totalCantidad = cart.map(productosJson.price * productosJson.availableStock)
 
     function isInCart(id){
         const item = cart.find(res => res.id === parseInt(id))
@@ -37,22 +55,18 @@ export const CartProvider = ({children}) => {
         }
       }
 
-
-      useEffect(() => {
-        const DB = getFirestore(); // Contectando a la BD 
-        const COLLECTION = DB.collection('productos'); // Tomando la coleccion de productos
-        COLLECTION.get().then(( response ) => {
-            console.log(response.docs);
-            response.docs.forEach((documento) => {
-                console.log(documento.data());
-            })
-        });
-  //   const totalCantidad = cart.map(productosJson.price * productosJson.availableStock)
-
-  }, [])
+    //   function cambiarStock(id){
+    //       const nuevoStock = firebase.map(producto =>{
+    //           if(producto.id === id) {
+    //               producto.stock -- //acá en -- colocar una variable
+    //           }
+    //           return producto;
+    //       })
+    //       setListProducts(nuevoStock)
+    //   }
 
     return (
-        <CartContext.Provider value={{ addCart, agregado}}>
+        <CartContext.Provider value={{ listProducts, addCart, agregado}}>
             {children}
         </CartContext.Provider>
     )

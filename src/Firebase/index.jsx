@@ -1,3 +1,4 @@
+/**Importación de los servicios de Firebase */
 import firebase from "firebase/app";
 import "@firebase/firestore";
 
@@ -5,7 +6,7 @@ import "@firebase/firestore";
 // Initialize Firebase
 /**definir y crear la conexion con Firebase */
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyALCa2IyA4scM-GXZiyDzsRQEqhC9dRAQ4",
+    apiKey: "AIzaSyALCa2IyA4scM-GXZiyDzsRQEqhC9dRAQ4", //esta key es privada
     authDomain: "e-commers-react.firebaseapp.com",
     projectId: "e-commers-react",
     storageBucket: "e-commers-react.appspot.com",

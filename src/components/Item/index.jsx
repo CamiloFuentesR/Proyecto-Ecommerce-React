@@ -2,8 +2,7 @@ import "./style.scss";
 import estrellas from "./estrellas.png";
 import { Link } from "react-router-dom";
 
-export function Item ({id, nombre, precio, imagen, stock }){
-    
+export function Item ({id, nombre, precio, imagen}){
     return (
         <div className="card">
             <div className="contenedorImagen">
@@ -13,7 +12,6 @@ export function Item ({id, nombre, precio, imagen, stock }){
             <img className="estrellas" src={estrellas} alt="estrellas" />
             <p className="precio">${precio}</p>
             <span className="nuevoPrecio"> ANTES $39.990</span>
-            <b>Sólo {stock} unidades disponibles</b>
             <Link to={`/detalle/${id}`}><button className="btn btn-info">Info del producto</button></Link>
         </div>
     )
