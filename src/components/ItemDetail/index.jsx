@@ -9,7 +9,7 @@ import { useContext, useState } from "react";
 export const ItemDetail = ({ id, stock, precio, imagen, descripcion, initial}) =>{
     const [ counter, setCounter] = useState()
 
-    // const {addCart, agregado} = useContext(CartContext)
+    // const {addCart} = useContext(CartContext)
 
     //al hacer click agrega uno
     function add(){

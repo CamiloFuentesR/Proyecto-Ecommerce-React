@@ -15,9 +15,9 @@ const NavbarComponent = () => {
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
                         <Link to={"/"}><span className="nav-item nav-link active" >Home <span className="sr-only"></span></span></Link>
-                        <Link to={"/category"}><span className="nav-item nav-link" >Zapatillas</span></Link>
-                        <span className="nav-item nav-link" >Mochilas </span>
-                        <span className="nav-item nav-link" >Poleron </span>
+                        <Link to={"/category/Mujer"}><span className="nav-item nav-link" >Zapatillas</span></Link>
+                        <span className={"/category/Mochilas Kids"} >Mochilas Kids </span>
+                        <span className={"/category/Polerón"}>Polerón </span>
                         <Link to={"/cart"}> <CartWidget /></Link>
                     </div>
                 </div>

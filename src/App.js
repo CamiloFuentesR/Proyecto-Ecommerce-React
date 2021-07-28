@@ -20,7 +20,9 @@ function App() {
             <Route exact path={`/`}>
                 <ItemListContainer/>
             </Route>
-
+            <Route exact path={`/category/:id`}>
+                <ItemListContainer/>
+            </Route>
             <Route exact path={`/detalle/:id`}>
               <ItemDetailContainer />
             </Route>
@@ -36,3 +38,8 @@ function App() {
 }
 
 export default App;
+
+
+{/* <Route exact path={`/detalle/:id`}>
+<ItemDetailContainer />
+</Route> */}

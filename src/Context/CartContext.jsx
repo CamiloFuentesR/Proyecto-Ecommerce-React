@@ -1,8 +1,7 @@
 import {createContext, useEffect} from 'react'
 import React, { useState } from 'react'
 import { getFirestore } from "../Firebase"
-import { productosJson } from '../FirebaseMock';
-import { useParams } from 'react-router-dom';
+
 
 
 export const CartContext = createContext();
@@ -17,6 +16,17 @@ export const CartProvider = ({children}) => {
     const[agregado, setAgregado] = useState(false)
     const[ cantidad, setCantidad ] = useState(0)
     const[ total, setTotal ] = useState()
+
+    useEffect(() => {
+            const DB = getFirestore(); 
+            const COLLECTION = DB.collection('Productos');
+            const response = COLLECTION.get();
+            response.then((result) => {
+                setListProducts(result.docs.map( p => ({id: p.id, ...p.data()})))
+            })
+
+    }, [])
+
 
     //Reviso que mis productos estén en el carrito
     function isInCart(id){
@@ -59,32 +69,10 @@ export const CartProvider = ({children}) => {
 
     // const { id } = useParams()
 
-    // useEffect(() => {
-    //     if(id){
-    //         const DB = getFirestore(); 
-    //         const COLLECTION = DB.collection('Productos');
-    //         const Categoria = COLLECTION.where(`categoryId`, `==`, id).get();
-    //         Categoria.then((response) => {
-    //             setListCategorias(response.docs.map(element => ({id: element.id, ...element.data()})))
-    //         })
-    //     }else{
-    //         console.log("algo salio mal")
-    //     }
-    // }, [id])
+    
 
 
-    useEffect(() => {
-        async function getDataFromFirestore (){ 
-            const DB = getFirestore(); 
-            const COLLECTION = DB.collection('Productos');
-            const response = await COLLECTION.get();
-            const productos = response.docs.map(element => {
-                return {id: element.id, ...element.data()}
-            });
-            setListProducts(productos)
-        }
-        getDataFromFirestore()
-    }, [])
+  
 
     //   function cambiarStock(id){
     //       const nuevoStock = firebase.map(producto =>{
