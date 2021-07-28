@@ -32,7 +32,7 @@ export const ItemDetailContainer = () => {
       />
       : <div className="d-flex justify-content-center">
           <div class="spinner-border text-info"></div>
-          <span className="sr-only">Loading...</span>
+          <span className="sr-only">Cargando...</span>
       </div>}
       </>
       )
