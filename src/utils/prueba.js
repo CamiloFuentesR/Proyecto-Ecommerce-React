@@ -112,12 +112,12 @@ export default function App() {
         getDataFromFirestoreUnit()
  */
 /**
- * El batch es para actualizar la base de datos cambiando valores y productos
+ * El BATCH es para actualizar la base de datos cambiando valores y productos ++++++++++++++
  * 
  const DB = getFirestore();
  const Batch = DB.batch();
  
- Batch.update(DB.collection(`pedido`).doc(`acá va id pedido`), {total: 9999})
+ Batch.update(DB.collection(`pedido`).doc(`acá va id pedido`), {total: 9999}) // total modifica el precio
  Batch.update(DB.collection(`pedido`).doc(`acá va  otro id pedido`), {total: 9999})
  Batch.commit();
  */
