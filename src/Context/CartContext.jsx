@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { getFirestore } from "../Firebase"
 
 
-
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
@@ -23,8 +22,8 @@ export const CartProvider = ({children}) => {
             const response = COLLECTION.get();
             response.then((result) => {
                 setListProducts(result.docs.map( p => ({id: p.id, ...p.data()})))
+                console.log(setListProducts.result)
             })
-
     }, [])
 
 
@@ -69,10 +68,6 @@ export const CartProvider = ({children}) => {
 
     // const { id } = useParams()
 
-    
-
-
-  
 
     //   function cambiarStock(id){
     //       const nuevoStock = firebase.map(producto =>{

@@ -37,7 +37,7 @@ export const ItemListContainer = () => {
             <div class="spinner-border text-info"></div>
             <span className="sr-only">Loading...</span>
         </div>
-        }
+        }        
         </>
     )
 }

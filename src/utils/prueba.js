@@ -4,6 +4,7 @@
 // import './App.css';
 
 import { useEffect } from "react"
+import { getFirestore } from "../Firebase"
 import { productosJson } from "../FirebaseMock"
 
 // function App() {
@@ -135,6 +136,14 @@ export default function App() {
 /**
  PARA AGREGAR DOCUMENTOS A LA COLLECCION
  * 
+const productos = [{ id: 3, name: `nombre`, price: 40000}, { id: 4, name: `nombre`, price: 40000}]
+productos.forEach(element => {
+  DB.collection(`productos`).add(element);
+})
+ *
+ *
+ PARA AGREGAR MENOS DE 100 PRODUCTOS A LA COLLECCION
+ *
  const productos = [{ id: 3, name: `nombre`, price: 40000}, { id: 4, name: `nombre`, price: 40000}]
  for(let i=0; i < 100; i ++){
     DB.collection(`Productos`).add(productos[0]).then((response) => {
@@ -143,4 +152,39 @@ export default function App() {
  }
  */
 
- 
+
+ /**
+  * PARA CREAR PRODUCTOS DESDE CODIGO A FIREBASE DINAMICO (HACERLO DENTRO DE UN USE EFFECT Y LUEGO BORRAR PARA QUE NO SE SIGA EJECUTANDO)
+  const DB = getFirestoreDB();
+  Array (10).fill(true).forEach((element, index) => {
+    const producto = {id:index, title: `Zapatillas modelo ${index}`, category: `Zapatillas - ${index}`, img: `url de imagen`}
+    DB.collection("productos").add(producto)
+  }
+  )
+  */
+
+  /**
+   * PARA TRAER LOS DATOS DE FIREBASE DE FORMA ORDENADA, ASCENDENTE O DESCENDENTE
+   async function getData(){
+     const DB = getFirestore();
+     const response = await DB.collection(`Productos`).orderBy(`id`, `desc`).get() //desc = descendente : asc = ascendente
+     response.docs.map((producto) => {
+       console.log(producto.data());
+      })
+    }
+    getData();
+  */
+
+
+/**
+ * PARA TRAER DATOS SEGUN PARAMETROS; SE PUEDE USAR EL WHERE, PARA TRAER POR EJEMPLO POR ID Y MENOR A 5
+ * 
+ * async function getData(){
+     const DB = getFirestore();
+     const response = await DB.collection(`Productos`).where(`id`, `>=`, 5).get() 
+     response.docs.map((producto) => {
+       console.log(producto.data());
+      })
+    }
+    getData();
+ */
