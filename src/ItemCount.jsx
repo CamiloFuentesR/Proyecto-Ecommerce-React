@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../Context/CartContext';
-import "./style.scss";
+import { CartContext } from './CartContext';
+import "./ItemCount.scss";
 
 
 export const ItemCount = ({stock, initial, add, restar, counter, id}) => {

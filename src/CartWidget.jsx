@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { CartContext } from "../../Context/CartContext";
-import "./style.scss";
+import { CartContext } from "./CartContext";
+import "./CartWidget.scss";
 
 export const CartWidget = () => {
     const { cantidad } = useContext(CartContext)

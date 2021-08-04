@@ -1,6 +1,7 @@
 import {createContext, useEffect} from 'react'
 import React, { useState } from 'react'
-import { getFirestore } from "../Firebase"
+import { getFirestore } from './Firebase';
+
 
 
 export const CartContext = createContext();
@@ -24,7 +25,9 @@ export const CartProvider = ({children}) => {
                 setListProducts(result.docs.map( p => ({id: p.id, ...p.data()})))
                 console.log(setListProducts.result)
             })
+            console.log(listProducts)
     }, [])
+    console.log(listProducts)
 
 
     //Reviso que mis productos estén en el carrito

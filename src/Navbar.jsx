@@ -1,9 +1,9 @@
-import logo from "./logoNavbar.png"
-import "./style.scss";
-import { CartWidget } from "../CartWidget";
+import logo from "./Images/logoNavbar.png"
+import "./Navbar.scss";
+import { CartWidget } from "./CartWidget";
 import { Link } from "react-router-dom"
 
-const NavbarComponent = () => {
+const Navbar = () => {
     return (
         <div className= "container">
             <nav className="navbar navbar-expand-md navbar-light bg-light">
@@ -26,4 +26,4 @@ const NavbarComponent = () => {
     )
 };
 
-export default NavbarComponent;
+export default Navbar;

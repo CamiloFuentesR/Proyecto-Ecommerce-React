@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import { HomeContainer } from "./containers/HomeContainer";
-import { ItemListContainer } from "./components/ItemListContainer";
 import { BrowserRouter, Switch, Route} from "react-router-dom";
-import { ItemDetailContainer } from "./components/ItemDetailContainer";
-import { CartContainer } from "./components/Cart"
-import { CartProvider} from "./Context/CartContext"
+import { ItemDetailContainer } from "./itemDetailContainer";
+import { CartContainer } from "./Cart"
+import { CartProvider} from "./CartContext"
+import Navbar from './Navbar';
+import { ItemListContainer } from './ItemListContainer';
 
 
 
@@ -15,7 +15,7 @@ function App() {
   return (
   <CartProvider>
     <BrowserRouter>
-        <HomeContainer greeting = {"Envío un greeting desde Chile!!"}/>
+        <Navbar/>
         <Switch>
             <Route exact path={`/`}>
                 <ItemListContainer/>

@@ -1,5 +1,5 @@
-import "./style.scss";
-import estrellas from "./estrellas.png";
+import "./Item.scss";
+import estrellas from "./Images/estrellas.png";
 import { Link } from "react-router-dom";
 
 export function Item ({id, nombre, precio, imagen}){

@@ -1,17 +1,19 @@
-import { ItemDetail } from "../ItemDetail"
-import { useEffect, useState } from "react"
+import { ItemDetail } from "./ItemDetail"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from 'react-router-dom';
-import { productosJson } from "../../FirebaseMock"
+import { CartContext } from "./CartContext";
 
 
 export const ItemDetailContainer = () => {
   const[productos, setProductos] = useState();
+
+  const { listProducts } = useContext(CartContext)
   const {id} = useParams();
 
   useEffect(() => {
     const misProductos = new Promise((resolve) =>{
       setTimeout(function (){
-        const category = productosJson.find(element => element.id === parseInt(id))
+        const category = listProducts.find(element => element.id === parseInt(id))
         resolve(category)
       }, 2000)
     })    

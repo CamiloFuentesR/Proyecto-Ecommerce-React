@@ -1,8 +1,8 @@
-import "./style.scss";
+import "./ItemDetail.scss";
 // import { saludoBotonAgregar } from '../../utils/generales';
-import { ItemCount } from "../ItemCount"
+import { ItemCount } from "./ItemCount"
 import { Link } from "react-router-dom"
-import { CartContext } from "../../Context/CartContext";
+import { CartContext } from "./CartContext";
 import { useContext, useState } from "react";
 
 
