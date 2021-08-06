@@ -26,7 +26,7 @@ export const ItemDetail = ({ id, stock, precio, imagen, descripcion, initial }) 
                 <h4 className="card-title">{descripcion}</h4>
                 <h6 className="card-text">Cantidades Disponibles: {stock}</h6>
                 <p className="priceItem">${precio}</p>
-                <ItemCount stock={5} initial={1} add={add} restar={restar} counter={counter} id={id} />
+                <ItemCount stock={5} id={id} />
             </div>
         </div>
     )

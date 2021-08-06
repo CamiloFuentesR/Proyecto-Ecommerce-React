@@ -1,35 +1,52 @@
-import React, { useContext, useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { CartContext } from './CartContext';
 import "../style/ItemCount.scss";
 
 
-export const ItemCount = ({stock, initial, add, restar, counter, id}) => {
-    const [ open, setOpen ] = useState(false)
-
+export const ItemCount = ({ stock,id }) => {
+    const [open, setOpen] = useState(false)
+    const [count, setCount] = useState(1);
     const { addCart } = useContext(CartContext)
 
-    function agregarYAbrir(item, counter, id){
+    const restar = () => {
+        if (count > 1) {
+            setCount(count - 1);
+        }
+    }
+    const add = () => {
+        if (count <= stock) {
+            setCount(count + 1);
+        }
+    }
+
+
+    function agregarYAbrir(item, counter, id) {
         addCart(item, counter, id);
         setOpen(true)
     }
-    // const [contador, setContador] = useState(0);
 
-    // useEffect(() => {
-    //     //cuando se montó el componente y se ejecuta una sola vez
-    //     setContador(1);
-    // }, []);
+
+    const AgregarAlCarrito = () => {
+        console.log('Agregatr al carrito');
+    }
 
     return (
         <div className="itemCount">
             <div>
                 <button className="btn btn-info" onClick={restar}>-</button>
-                <span className="numeroContador">{counter}</span>
+                <span className="numeroContador">{count}</span>
                 <button className="btn btn-info" onClick={add}>+</button>
             </div>
-            {!open ? (
+            <button
+                className="btn btn-success"
+                onClick={AgregarAlCarrito}
+            >
+                Agregar al Carrito
+            </button>
+            {/* {!open ? (
             <button className="btn btn-danger" onClick= {() => agregarYAbrir(id, counter)}>Agregar al Carrito</button>) :
-            (<Link to={"/cart"}><button className="btn btn-success">Producto Agregado ✔️ Terminar Compra</button></Link>)}
+            (<Link to={"/cart"}><button className="btn btn-success">Producto Agregado ✔️ Terminar Compra</button></Link>)} */}
         </div>
     )
 }
