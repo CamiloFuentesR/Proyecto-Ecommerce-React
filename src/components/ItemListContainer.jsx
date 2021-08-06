@@ -6,19 +6,19 @@ import { CartContext } from './CartContext';
 
 export const ItemListContainer = () => {
     //aqui viene por defecto la query
-    const { listProducts } = useContext(CartContext); 
+    const { listProducts } = useContext(CartContext);
     const [product, setProduct] = useState([])
-    const {id} = useParams();
+    const { id } = useParams();
 
     //para obtener la lista de productos basados en la category
     useEffect(() => {
-        const productsByCategory = async () =>{
-            if(id !== undefined){
+        const productsByCategory = async () => {
+            if (id !== undefined) {
                 const response = await db.collection('Productos').where('categoryId', '==', id).get();
-                setProduct(response.docs.map(response=>({id: response.id, ...response.data()})))
-            }else{
-                const response = await  db.collection('Productos').get();
-                setProduct(response.docs.map(response=>({id: response.id, ...response.data()})))
+                setProduct(response.docs.map(response => ({ id: response.id, ...response.data() })))
+            } else {
+                const response = await db.collection('Productos').get();
+                setProduct(response.docs.map(response => ({ id: response.id, ...response.data() })))
             }
         }
         productsByCategory();
