@@ -7,6 +7,7 @@ import { CartProvider } from "./components/CartContext"
 import { ItemListContainer } from './components/ItemListContainer';
 import { CartContainer } from './components/Cart';
 import Navbar from './components/Navbar';
+import { CarritoScreen } from './components/carrito/CarritoScreen';
 
 
 
@@ -27,7 +28,10 @@ function App() {
             <ItemDetailContainer />
           </Route>
           <Route exact path={`/cart`}>
-            <CartContainer />
+            <div className="CarritoScreen">
+            {/* <CartContainer /> */}
+            <CarritoScreen/>
+            </div>
           </Route>
 
         </Switch>

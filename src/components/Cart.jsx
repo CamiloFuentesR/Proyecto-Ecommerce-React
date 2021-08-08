@@ -4,19 +4,8 @@ import { db } from '../firebase/Firebase';
 
 export const CartContainer = () => {
     const [datos, setDatos] = useState({name: ``, email: ``, phone: ``});
-    // const [total, setTotal] = useState(0)
-    
-    // const { cart } = useContext(CartContext)
-
-
-    // useEffect(() => {
-    //     const total = cart.reduce((previo, actual) => {return previo.montoTotal + actual.montoTotal}) //esta funcion tiene que estar en el context (indica el total de cada elemento que se agrega al carrito. Se puede hacer con for each ver video de la clase)
-    //     setTotal(total)
-    // })
-
-    
-    console.log(datos)
-    return( 
+ 
+return( 
         <>
         <Link to={`/`} ><button>Volver a página principal</button></Link>
         <div>

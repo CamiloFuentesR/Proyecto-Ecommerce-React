@@ -3,7 +3,6 @@ import "../style/ItemList.scss"
 import { useParams } from "react-router-dom";
 
 export const ItemList = ({ listProducts }) => {
-   console.log(listProducts);
     return (
         <section className="itemContainer">
             {listProducts.map((producto, index) =>
