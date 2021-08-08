@@ -3,7 +3,7 @@ import "../style/ItemDetail.scss";
 
 export const ItemDetail = ({ producto, id }) => {
 
-    const { image, stock, description, price, avalaibleStock } = producto;
+    const { image, stock, description, price, availableStock } = producto;
     const [carrito, setCarrito] = useState([]);
     const [carrito2, setCarrito2] = useState('');
     const [count, setCount] = useState(1);
@@ -14,31 +14,21 @@ export const ItemDetail = ({ producto, id }) => {
     }
 
     const add = () => {
-        console.log('sumar');
-        if (count <= avalaibleStock) {
+        if (count <= availableStock) {
             setCount(count + 1);
         }
     }
     useEffect(() => {
         const carrito = JSON.parse(localStorage.getItem('carrito'));
         setCarrito(carrito);
-        console.log('useeffect')
-        // if(carrito2 !== '' ){
-        //     localStorage.setItem('carrito',JSON.stringify(carrito2))
-        //     console.log('vacio')
-        // }
         let newProduct;
-        console.log(carrito)
-        console.log(id)
         if (carrito2 !== '' && carrito) {
             newProduct = carrito.some(carrito => carrito.id === id)
         }
         if (!newProduct && carrito2 !== '') {
-            console.log(newProduct);
             localStorage.setItem('carrito', JSON.stringify(carrito2))
-
         }
-    }, [carrito2])
+    }, [carrito2,id])
 
 
     const AgregarAlCarrito = () => {
@@ -52,7 +42,6 @@ export const ItemDetail = ({ producto, id }) => {
             setCarrito2(
                 [...carrito, producto]
             )
-            // localStorage.setItem('carrito', JSON.stringify(carrito2))
         }
     }
 
