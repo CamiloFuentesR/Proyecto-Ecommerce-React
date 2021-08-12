@@ -7,6 +7,7 @@ export const ItemDetail = ({ producto, id }) => {
     const [carrito, setCarrito] = useState([]);
     const [carrito2, setCarrito2] = useState('');
     const [count, setCount] = useState(1);
+
     const restar = () => {
         if (count > 1) {
             setCount(count - 1);
@@ -28,8 +29,7 @@ export const ItemDetail = ({ producto, id }) => {
         if (!newProduct && carrito2 !== '') {
             localStorage.setItem('carrito', JSON.stringify(carrito2))
         }
-    }, [carrito2,id])
-
+    }, [carrito2, id])
 
     const AgregarAlCarrito = () => {
         if (carrito === null) {
@@ -44,7 +44,6 @@ export const ItemDetail = ({ producto, id }) => {
             )
         }
     }
-
 
     return (
         <div className="cardItemDetail">

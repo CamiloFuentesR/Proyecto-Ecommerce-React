@@ -3,22 +3,33 @@ import React, { useEffect, useState } from 'react'
 export const CarritoScreen = () => {
 
     const [carro, setCarro] = useState('')
+    const [carroEliminado, setCarroEliminado] = useState('')
     let res = 0;
+
     if (carro) {
-        for (let name in carro) {
-            res = Number(res) + Number(carro[name].price * carro[name].cantidad);
+        for (let index in carro) {
+            res = Number(res) + Number(carro[index].price * carro[index].cantidad);
         }
     }
 
-    const eliminarDelCarrito = (id,e) => {
-        setCarro(carro.filter(carro => carro.id !== id));
-        localStorage.setItem('carrito',JSON.stringify(carro));
+    let carrito;
+
+    const eliminarDelCarrito = (id, e) => {
+        carrito = carro.filter(carro => carro.id !== id);
+        // setCarro(carro.filter(carro => carro.id !== id));
+        setCarroEliminado(carrito);
     }
 
     useEffect(() => {
-        let carrito = JSON.parse(localStorage.getItem('carrito'));
+        console.log('useefect del carrito screen');
+        console.log(carroEliminado);
+        if (carroEliminado) {
+        localStorage.setItem('carrito', JSON.stringify(carroEliminado));
+        }
+        const carrito = JSON.parse(localStorage.getItem('carrito'));
         setCarro(carrito);
-    }, [])
+    }, [carroEliminado])
+
     return (
         <div className="container-fluid">
             <div className="container">
@@ -43,9 +54,9 @@ export const CarritoScreen = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <button 
+                                        <button
                                             className="btn btn-danger"
-                                            onClick={(e)=>eliminarDelCarrito(c.id,e)}
+                                            onClick={(e) => eliminarDelCarrito(c.id, e)}
                                         >
                                             eliminar
                                         </button>
